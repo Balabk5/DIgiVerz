@@ -1,0 +1,15 @@
+@import '~antd/dist/antd.css';
+.parent__upload__cont{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10rem;
+    height: 20rem;
+    width: 100%;
+    
+}
+.child__upload__cont{
+    height: inherit;
+    width: 20%;
+    background-color: aliceblue;
+    text-align: center;
+}

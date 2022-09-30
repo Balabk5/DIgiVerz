@@ -1,0 +1,53 @@
+
+.features__parent{
+    height: 150vh;
+    width: 100%;
+    background-image: url('../../assests/digi_portal_bg.png');
+    background-size: cover;
+  }
+  .p2__img{
+    height: 25rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+  }
+  .graph_img{
+    height: 25rem;
+    width: auto;
+    margin-top: 3rem;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+  }
+  .p2__head_dec{
+    text-align: center;
+    margin: 0 0 3rem 0;
+  }
+.feature__container{
+    height: 25rem;
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-around;
+}
+.item{
+    height: 25rem;
+    width: 20rem;
+    background-color: transparent;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    transition: .6s ease;
+
+}
+.item:hover{
+    transform: scale(1.02);
+}
+.feature__img__src{
+    height: 10rem;
+    width: auto;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}

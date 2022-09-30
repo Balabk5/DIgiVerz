@@ -1,0 +1,240 @@
+.home__parent{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../../assests/digi_portal_bg.png');
+    background-size: cover;
+}
+.navbar {
+    height: 5rem;
+    width: 100%;
+    
+  
+    display: flex;
+    justify-content: flex-start;
+    
+  }
+  
+  .nav-menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin-right: 10rem;
+    height: 10vh;
+    width: 50%;
+    margin-left: 35rem;
+  }
+
+  
+  li {
+    list-style: none;
+    margin-top: 1.6rem;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+.nav-links {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-links:hover {
+    background-color:black;
+    color: white;
+    border-radius: 4px;
+    transition: all 0.6s ease-out;
+  }
+  
+  .fa-bars {
+    color: black;
+  }
+  
+  .nav-links-mobile {
+    display: none;
+  }
+  
+  .menu-icon {
+    display: none;
+  }
+  .home__main_cont{
+    height: 90vh;
+    width: 100%;
+    
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 3rem;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    
+  }
+  .logo_main{
+    height: 2.5rem;
+    margin: 2.3rem 0 0 .5rem;
+    width: auto;
+  }
+  .home__main_cont_hed{
+    font-weight: 700;
+    margin-bottom: 0%;
+  }
+  .brandname{
+    margin: .8rem 0 0 10rem;
+  }
+  .prediction-btn {
+    margin-top: 1rem;
+    height: 3rem;
+    width: 10rem;    
+    background-color: #0052FF;
+    color: white;
+    border: none;
+    border-radius: .2rem;
+    transition: .6s;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 550;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.prediction-btn:hover,
+.prediction-btn:focus {
+    background-color: black;
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.homepage__main_img{
+  height: 18rem;
+  width: auto;
+  margin-top: 1rem;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+
+}
+
+#section04 a {
+  padding-top: 60px;
+}
+#section04 a span {
+  position: absolute;
+  top: 93%;
+  left: 49.5%;
+  width: 24px;
+  height: 24px;
+  
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb04 2s infinite;
+  animation: sdb04 2s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb04 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    -webkit-transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+}
+@keyframes sdb04 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+  
+  @media (max-width: 960px) {
+    .navbar {
+      position: relative;
+    }
+  
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 100%;
+      left: -100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+    }
+  
+    .nav-menu.active {
+      background: white;
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 1;
+    }
+  
+    .nav-links {
+      text-align: center;
+      color: black;
+      padding: 2rem;
+      width: 100%;
+      display: table;
+    }
+  
+    .nav-links:hover {
+      background-color: aliceblue;
+      border-radius: 0;
+    }
+  
+    .navbar-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(25%, 50%);
+    }
+  
+    .menu-icon {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-100%, 60%);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+  
+    .fa-times {
+      color: black;
+      font-size: 2rem;
+    }
+  
+    .nav-links-mobile {
+      display: block;
+      text-align: center;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      border-radius: 4px;
+      width: 80%;
+      background: #4ad9e4;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+  
+    .nav-links-mobile:hover {
+      background: #fff;
+      color: #6568f4;
+      transition: 250ms;
+    }
+  }
