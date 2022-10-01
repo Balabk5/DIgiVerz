@@ -1,10 +1,12 @@
 import React from 'react'
 import p2img from '../../assests/graph_img_p2.png'
 import { Text } from "@nextui-org/react";
+import {  Link } from "react-router-dom";
 import Dataquality from '../../assests/features/1.png'
 import Modelbuilder from '../../assests/features/2.png'
 import Salceforcast from '../../assests/features/3.png'
 import algoanalyzer from '../../assests/features/4.png'
+
 
 export const Features = () => {
   return (
@@ -30,22 +32,22 @@ export const Features = () => {
             <div className="feature1 item">
                 <img className='feature__img__src' src={Dataquality} alt="" />
                 <h2>Data quality reporter</h2>
-                <button className="prediction-btn">Get Started</button>
+                <Link to='/login' > <button className="prediction-btn">Get Started</button></Link>
             </div>
             <div className="feature2 item">
             <img className='feature__img__src' src={Modelbuilder} alt="" />
                 <h2>Model Builder</h2>
-                <button className="prediction-btn">Get Started</button>
+                <Link to='/login' > <button className="prediction-btn">Get Started</button></Link>
             </div>
             <div className="feature3 item">
             <img className='feature__img__src' src={Salceforcast} alt="" />
                 <h2>Sales Forecasting</h2>
-                <button className="prediction-btn">Get Started</button>
+                <Link to='/login' > <button className="prediction-btn">Get Started</button></Link>
             </div>
             <div className="feature4 item">
             <img className='feature__img__src' src={algoanalyzer} alt="" />
                 <h2>Algorithm Analyze</h2>
-                <button className="prediction-btn">Get Started</button>
+                <Link to='/login' > <button className="prediction-btn">Get Started</button></Link>
             </div>
 
         </div>

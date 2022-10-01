@@ -2,6 +2,7 @@ import "./layouts/uploadPage/UploadPage.css";
 import "./layouts/Login/Login.css";
 import "./Components/Features/Features.css"
 import "./Components/Navbar/Navbar.css";
+import "./Components/FeaturesComponents/Modelbuilder/Modelbuilder.css"
 import "./App.css";
 
 
