@@ -37,14 +37,38 @@ a {
   color: #2196f3;
   text-decoration: none;
 }
+.centerelements{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .pn-login-image{
 	height:25rem;
 	width:25rem;
-	margin-top:4rem;
-	margin-left:20%;
-	/* background-image:url('../images/EHSM-login_img.png'); */
 	
+	/* background-image:url('../images/EHSM-login_img.png'); */
+	filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
+img.pn-login-image {
+  -webkit-animation: mover 2s infinite  alternate;
+  animation: mover 2s infinite  alternate;
+}
+img.pn-login-image {
+  -webkit-animation: mover 2s infinite  alternate;
+  animation: mover 3s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
 
 .container {
 
@@ -70,12 +94,21 @@ a {
   display: flex;
   flex-direction: column;
 }
+.container__login{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5rem;
+}
 .signup-container {
-  width: 95%;
+  height: 32rem;
+  width: 80%;
+  background-color: white;
   
-  margin-top: 15%;
-  margin-left:3rem;
-  background-color:white;
+  
+  
 border-radius: 1rem;
 
 box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
@@ -83,8 +116,7 @@ box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   justify-content: flex-start;
   
 
-  grid-column: 1 / 2;
-  grid-row: 1;
+  
 }
 .signup-form {
   max-width: 25rem;
@@ -289,8 +321,12 @@ Button{
 .pm-cont{
 	font-size:3rem;
 	font-weight:700;
-	margin-left:10%;
+	
 	color:black;
+}
+.digi__dec__login{
+  font-size: 1.3rem;
+  
 }
 .pm-sub-cont{
 	margin-left:10%;
@@ -343,17 +379,21 @@ Button{
 }
 
 
-.parent {
+.parent__login {
     display: flex;
+    justify-content: space-around;
+    flex-shrink: revert;
+    background-image: url('../../assests/digi_portal_bg.png');
+    background-size: cover;
 }
 
 .child1 {
-    height: 30rem;
+    height: 100vh;
     width: 50%;
 }
 
 .child2 {
-    height: 30rem;
+    height: 100vh;
     width: 50%;
 }
 

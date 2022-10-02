@@ -3,6 +3,12 @@ import menuItems from "../menuitems";
 import { Text } from "@nextui-org/react";
 import home_analytics from "../../assests/Home__analytics_pic.png";
 import logo from "../../assests/logo_main.png";
+import chart_icon from "../../assests/homepage/1.png"
+import pie_chart from "../../assests/homepage/2.png"
+import data_file from "../../assests/homepage/3.png"
+import chartandpie from "../../assests/homepage/4.png"
+import datacircle from "../../assests/homepage/5.png"
+import dataserver from "../../assests/homepage/6.png"
 export const Navbar = () => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
@@ -63,9 +69,35 @@ export const Navbar = () => {
         </Text>
 
         <button className="prediction-btn">Get Started</button>
-        <img className="homepage__main_img" src={home_analytics} alt="" />
+        <div className="home__icons__cont">
+          <div className="home__icons__cont1 home__iconshape">
+            <div className="chart__icon__home icon__set0">
+              <img className="chart__icon__ homeicon__css" src={chart_icon} alt="" />
+            </div>
+            <div className="data__icon__home icon__set1">
+            <img className="chart__icon__ homeicon__css" src={pie_chart} alt="" />
+            </div>
+            <div className="dataserver__icon__home icon__set0">
+            <img className="chart__icon__ homeicon__css" src={data_file} alt="" />
+            </div>
+          </div>
+          <div className="home__icon_cont2 home__iconshape">
+            <img className="homepage__main_img" src={home_analytics} alt="" />
+          </div>
+          <div className="home__icons__cont3 home__iconshape">
+          <div className="chart__icon__home icon__set">
+              <img className="chart__icon__ homeicon__css" src={dataserver} alt="" />
+            </div>
+            <div className="data__icon__home icon__set2">
+            <img className="chart__icon__ homeicon__css" src={datacircle} alt="" />
+            </div>
+            <div className="dataserver__icon__home icon__set">
+            <img className="chart__icon__ homeicon__css" src={chartandpie} alt="" />
+            </div>
+          </div>
+        </div>
+
         <section id="section04" class="demo">
-          
           <a href="#section05">
             <span></span>
           </a>

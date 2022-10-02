@@ -2,7 +2,9 @@ import React from 'react'
 import Loginimg from "../../assests/analytics_img.png"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Text } from "@nextui-org/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faEye } from "@fortawesome/free-solid-svg-icons";
 const Login = () => {
     const navigate = useNavigate();
     useEffect(() => {
@@ -42,7 +44,7 @@ const Login = () => {
   };
 
   return (
-    <div className="parent">
+    <div className="parent__login">
     <div className="child1">
         <div className="centerelements">
             {/* <img src="/assets/images/customerportal.png" alt="" className="pn-login-image"> */}
@@ -51,8 +53,19 @@ const Login = () => {
           src={Loginimg}
           alt=""
         />
-            <h1 className="pm-cont"> DigiVerze Portal</h1>
             
+            <Text
+          h1
+          size={60}
+          className="pm-cont"
+          css={{
+            textGradient: "45deg, $blue600 -5%, $black 60%",
+          }}
+          weight="bold"
+        >
+          DigiVerze 
+        </Text>
+        <p className='digi__dec__login'>Get detailed analytics and predictions on your data</p>
             
             {/* <p className="pm-sub-cont">One stop for getting details on your Inquiry data,Sale order data and List of Delivery 
             </p>
@@ -63,7 +76,7 @@ const Login = () => {
         </div>
     </div>
     <div className="child2">
-        <div className="container">
+        <div className="container__login">
             <div className="signup-container">
                 <h1 className="heading-primary">Log in
                     <span className="span-blue">.</span>
@@ -75,7 +88,7 @@ const Login = () => {
                         
                         <span className="label">UserName</span>
                         <span className="input-icon">
-                            <i className="fa-solid fa-envelope"></i>
+                        <FontAwesomeIcon icon={faEnvelope} />
                         </span>
                     </label>
                     <label className="inp">
@@ -83,7 +96,7 @@ const Login = () => {
                        
                         <span className="label">Password</span>
                         <span className="input-icon input-icon-password">
-                            <i className="fa-solid fa-eye"></i>
+                        <FontAwesomeIcon icon={faEye} />
                         </span>
                     </label>
                     <button type="submit" className="btn1">Login</button>
