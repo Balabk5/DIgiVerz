@@ -18,7 +18,7 @@ const Login = () => {
         );
           console.log(data)
         const items = await data.json();
-        console.log(items.name);
+        console.log(items);
         setItems(items);
       };
   const [username, setusername] = useState("");
@@ -26,13 +26,14 @@ const Login = () => {
   const [authenticated, setauthenticated] = useState(
     localStorage.getItem(localStorage.getItem("authenticated") || false)
   );
-  const users = [{ username: "bala", password: "12345" }];
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    const account = items.map((user) => user.name === username);
-    const account_pass = items.map((user) => user.age === password);
+    const account = items.map((user) => user.username === username);
     console.log(account)
-    if (account && account_pass) {
+    const account_pass = items.map((user) => user.password === password);
+    console.log(account)
+    if (account[0] === true && account_pass[0] === true) {
       localStorage.setItem("authenticated", true);
       console.log("success")
       navigate("/upload");
@@ -106,6 +107,14 @@ const Login = () => {
             </div>
         </div>
     </div>
+    
+       {/* {items.map((item) => (
+        <div key={item.itemId} className="wrapper__list">
+          <li>{item.username}</li>
+          
+        </div>
+      ))} */}
+    
 </div>
   )
 }
