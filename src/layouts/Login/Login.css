@@ -489,3 +489,8 @@ Button{
 .forget-pass{
     margin-top: 1rem;
 }
+.popup__alert{
+  height: 4rem;
+  width: 4rem;
+  margin-left: 42%;
+}

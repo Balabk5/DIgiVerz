@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Text } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faCross, faEnvelope, faEye, faWarning } from "@fortawesome/free-solid-svg-icons";
+import { Modal, Input, Row, Checkbox, Button } from "@nextui-org/react";
+import { Loading } from "@nextui-org/react";
+
 const Login = () => {
     const navigate = useNavigate();
     useEffect(() => {
@@ -23,6 +26,7 @@ const Login = () => {
       };
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
+  const [visible, setVisible] = React.useState(false);
   const [authenticated, setauthenticated] = useState(
     localStorage.getItem(localStorage.getItem("authenticated") || false)
   );
@@ -37,11 +41,18 @@ const Login = () => {
       localStorage.setItem("authenticated", true);
       console.log("success")
       navigate("/upload");
-
+      
     }
     else{
         console.log("nope")
+        setVisible(true);
     }
+  };
+  
+  
+  const closeHandler = () => {
+    setVisible(false);
+    console.log("closed");
   };
 
   return (
@@ -94,19 +105,46 @@ const Login = () => {
                     </label>
                     <label className="inp">
                         <input type="password"  className="input-text" placeholder=" " id="pass" name="password" onChange={(e) => setpassword(e.target.value)}/>
-                       
+                        
                         <span className="label">Password</span>
                         <span className="input-icon input-icon-password">
                         <FontAwesomeIcon icon={faEye} />
                         </span>
                     </label>
-                    <button type="submit" className="btn1">Login</button>
+                    <button type="submit"  className="btn1">Login</button>
                     
                     
                 </form>
             </div>
         </div>
     </div>
+    <Modal
+        closeButton
+        blur
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+      >
+        <FontAwesomeIcon className='popup__alert' icon={faWarning}/>
+        <Modal.Header>
+          
+          <Text id="modal-title" size={18}>
+            
+            <Text b size={18}>
+            oops! Check the password
+            </Text>
+          </Text>
+        </Modal.Header>
+        
+          
+        <Modal.Footer>
+          <Button auto flat color="error" onClick={closeHandler}>
+            Close
+          </Button>
+          
+        </Modal.Footer>
+        <Loading color="error" type="points" />
+      </Modal>
     
        {/* {items.map((item) => (
         <div key={item.itemId} className="wrapper__list">
