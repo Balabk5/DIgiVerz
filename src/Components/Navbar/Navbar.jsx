@@ -22,7 +22,7 @@ export const Navbar = () => {
         <ul className={active ? "nav-menu active" : "nav-menu"}>
           {menuItems.map((item, index) => {
             return (
-              <li key={index}>
+              <li className="list__items_navbar" key={index}>
                 <a href={item.url} className={item.cName}>
                   {item.title}
                 </a>

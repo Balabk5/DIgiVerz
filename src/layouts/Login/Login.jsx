@@ -17,7 +17,7 @@ const Login = () => {
       const [items, setItems] = useState([]);
       const fetchItems = async () => {
         const data = await fetch(
-          "http://127.0.0.1:5000/user"
+          "http://127.0.0.1:5000/api/user"
         );
           console.log(data)
         const items = await data.json();

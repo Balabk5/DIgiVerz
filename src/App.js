@@ -3,6 +3,7 @@ import "./layouts/Login/Login.css";
 import "./Components/Features/Features.css"
 import "./Components/Navbar/Navbar.css";
 import "./Components/FeaturesComponents/Modelbuilder/Modelbuilder.css"
+import "./Components/sidenav/Sidenav.css"
 import "./App.css";
 
 
@@ -14,6 +15,8 @@ import { Uploadcsv } from "./layouts/Uploadcsv/Uploadcsv";
 import { Navbar } from "./Components/Navbar/Navbar";
 import { Features } from "./Components/Features/Features";
 import { Modelbuilder } from "./Components/FeaturesComponents/Modelbuilder/Modelbuilder";
+import { Sidenav } from "./Components/sidenav/Sidenav";
+import { Mbresul } from "./Components/FeaturesComponents/Modelbuilder/Mbresul";
 
 
 
@@ -31,7 +34,8 @@ function App() {
                 <>
                   <Navbar />
                   <Features/>
-                  <Modelbuilder/>
+                  
+                  
                 </>
               }
             />
@@ -44,6 +48,9 @@ function App() {
               }
             />
             <Route path="/upload" element={<Uploadcsv />} />
+            <Route path="/sidenav" element={<Sidenav/>} />
+            <Route path="/modelbuilder" element={<Modelbuilder/>} />
+            <Route path="/mbresult" element={<Mbresul/>} />
           </Routes>
         </div>
       </Router>

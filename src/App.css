@@ -5,4 +5,30 @@
 }
 html,body{
     overflow-x: hidden;
+    
+}
+@media only screen and (max-width: 600px) {
+    .home__icons__cont1,.home__icons__cont3{
+        display: none;
+    }
+    .home__iconshape {
+        height: 18rem;
+        width: 90%;
+    }
+    .feature__container{
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+    }
+    .features__parent{
+        background-image: none;
+    }
+    .item{
+        height: 20rem;
+        width: 15rem;
+        margin-left: 20%;
+    }
+    .item h2{
+        font-size: 1.2rem;
+    }
 }

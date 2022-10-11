@@ -1,9 +1,48 @@
 .modelbuilder__parent{
-    height: 40rem;
+    height: 100vh;
     width: 100%;
+    display: flex;
 }
-.Multiple__select__column{
-    height: auto;
-    width: 50%;
-    margin-left: 30%;
+
+.MB_form__cont{
+    width: 82%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.MB_form_cont__child{
+    height:80vh ;
+    width: 95%;
+    margin: 5%;
+    padding: 2rem 2rem 0 8rem;
+    position: relative;
+  
+  
+
+}
+.MB_icon_images{
+    height: 20rem;
+    width: 20rem;
+    background-image: url("../../../assests/features/model_builder_icons.png");
+    background-repeat: no-repeat;
+  background-size:23rem;
+  position: absolute;
+  top: 40%;
+  right: 12%;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+
+}
+.country_inp{
+    width: 40%;
+}
+.MB__form_lable{
+    display: block;
+    margin: 1rem 0 1rem 0;
+}
+.slider_exp{
+    width: 40%;
+}
+.MB_pred_btn{
+    margin-top: 2rem;
 }

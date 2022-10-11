@@ -6,7 +6,7 @@ import { Button, Upload } from 'antd';
 
 export const Uploadcsv = () => {
     const props = {
-        action: 'http://127.0.0.1:5000/file',
+        action: 'http://127.0.0.1:5000/api/file',
       
         onChange({ file, fileList }) {
           if (file.status !== 'uploading') {
