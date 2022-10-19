@@ -4,6 +4,8 @@ import "./Components/Features/Features.css"
 import "./Components/Navbar/Navbar.css";
 import "./Components/FeaturesComponents/Modelbuilder/Modelbuilder.css"
 import "./Components/sidenav/Sidenav.css"
+import "./Components/FeaturesComponents/Modelbuilder/Mbresult.css"
+import "./layouts/Uploadcsv/Uploadcsv.css"
 import "./App.css";
 
 

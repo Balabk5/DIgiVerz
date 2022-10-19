@@ -3,10 +3,13 @@ import Multiselect from "multiselect-react-dropdown";
 import axios from "axios";
 import { Button, Text } from "@nextui-org/react";
 import { Sidenav } from "../../sidenav/Sidenav";
-import { Select, Slider } from "antd";
+import { Input, Select, Slider } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import Item from "antd/lib/list/Item";
 export const Modelbuilder = () => {
+  const navigate = useNavigate();
   const Country_array = [
     { value: "United States", text: "United States" },
     { value: "India", text: "India" },
@@ -35,6 +38,7 @@ export const Modelbuilder = () => {
   ]
   const [country, setcountry] = useState('United States');
   const [degree, setdegree] = useState('Master’s degree');
+  
   const[exp,setexp]= useState(3)
   const handleChange = (selectedoption) => {
     
@@ -47,6 +51,7 @@ export const Modelbuilder = () => {
   const onSliderChange = (selectedoption) => {
     setexp(selectedoption)
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -60,11 +65,15 @@ export const Modelbuilder = () => {
       body: JSON.stringify({
         country,
         degree,
-        exp
+        exp,
+        
       }),
     });
     await res.json();
+    navigate('/mbresult')
   };
+ 
+
 
   return (
     <div className="modelbuilder__parent">
@@ -75,6 +84,8 @@ export const Modelbuilder = () => {
           <h1>Software Developer Salary Prediction</h1>
           <h3>We need some information to predict the salary</h3>
           <form onSubmit={handleSubmit}>
+            
+            
             <label className="MB__form_lable" htmlFor="select">
               Select the Country name
             </label>
@@ -108,7 +119,7 @@ export const Modelbuilder = () => {
           // value={typeof inputValue === 'number' ? inputValue : 0}
           step={1}
         />
-        <Button className="MB_pred_btn"  type="submit"> Prediction</Button>
+        <Button className="MB_pred_btn" onPre type="submit"> Prediction</Button>
           </form>
           
         </div>

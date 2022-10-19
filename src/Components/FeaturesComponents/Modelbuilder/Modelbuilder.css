@@ -2,6 +2,8 @@
     height: 100vh;
     width: 100%;
     display: flex;
+    background-image: url('../../../assests/digi_portal_bg.png');
+    background-size: cover;
 }
 
 .MB_form__cont{

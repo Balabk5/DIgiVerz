@@ -1,8 +1,18 @@
-import { faDatabase, faHistory, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faDatabase, faHistory, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Text } from "@nextui-org/react";
+import { NavLink } from "react-router-dom";
+
 export const Sidenav = () => {
+    
+        const navLinkSty1es = ({isActive}) =>{
+            return{
+                
+                
+                color: isActive ? 'blue' : 'black' 
+            }
+        }
   return (
 
     <div className="sidenav_parent">
@@ -10,13 +20,16 @@ export const Sidenav = () => {
         <nav className="sidenav__cont">
             <ul className="sidenav__listitems">
                 <li >
-                    <a href=""> <FontAwesomeIcon className="sidenav_icon" icon={faDatabase}/> <Text h3 className="sidenav__mainhed">Predict</Text></a>
+                    <NavLink style={navLinkSty1es}  to='/modelbuilder' ><FontAwesomeIcon className="sidenav_icon" icon={faDatabase}/> <h3 className="sidenav__mainhed">Predict</h3></NavLink>
+                     
                 </li>
                 <li>
-                    <a href="">  <FontAwesomeIcon className="sidenav_icon" icon={faSearch}/> <Text h3 className="sidenav__mainhed">Explore</Text></a>
+                <NavLink style={navLinkSty1es} to='/mbresult' ><FontAwesomeIcon className="sidenav_icon" icon={faSearch}/> <h3 className="sidenav__mainhed">Explore</h3></NavLink>
+                    
                 </li>
                 <li>
-                    <a href="">  <FontAwesomeIcon className="sidenav_icon" icon={faHistory}/> <Text h3 className="sidenav__mainhed">History</Text></a>
+                <NavLink   ><FontAwesomeIcon className="sidenav_icon" icon={faHistory}/> <h3 className="sidenav__mainhed">History</h3></NavLink>
+                    
                 </li>
             </ul>
         </nav>
