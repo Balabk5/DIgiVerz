@@ -28,7 +28,7 @@ export const Sidenav = () => {
                     
                 </li>
                 <li>
-                <NavLink   ><FontAwesomeIcon className="sidenav_icon" icon={faHistory}/> <h3 className="sidenav__mainhed">History</h3></NavLink>
+                <NavLink style={navLinkSty1es} to='/mbhistory' > <FontAwesomeIcon className="sidenav_icon" icon={faHistory}/> <h3 className="sidenav__mainhed">History</h3></NavLink>
                     
                 </li>
             </ul>
