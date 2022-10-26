@@ -7,19 +7,43 @@
     padding: 2rem;
 }
 .eda-cont-left{
-    height: 100vh;
+    height: auto;
     width: 80%;
     
 }
 .eda-cont-right{
-    height: 200vh;
+    height: 100vh;
     width: 20%;
 }
 .df-head-table{
     width: 90%;
     overflow: scroll;
     margin: 0 5%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #F6F8FC #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #F6F8FC;
+    border-radius: 0px;
+    border: 0px none #ffffff;
+  } 
+
 .dq-head{
     text-align: center;
     margin: 1rem 0;
@@ -40,7 +64,7 @@ table {
     width: 100%;
     border: none;
     border-radius: 0.5rem;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     white-space: nowrap;
     overflow: scroll;
 }
@@ -63,7 +87,7 @@ table tbody tr:nth-child(odd) td {
 }
 
 table tbody tr:nth-child(even) td {
-    background: #edf2f7;
+    background: #F6F8FC;
 }
 
 table tbody td {
@@ -88,9 +112,9 @@ table tbody td {
 .df-size, .df-shap{
     height: inherit;
     width: 40%;
-    background-color:#edf2f7;
+    background-color:#F6F8FC;
     padding: 1.5rem;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 .df-shap-pad{
     padding: .1rem;
@@ -104,4 +128,21 @@ table tbody td {
     font-weight: 500;
     text-align: center;
     font-size: 1.5rem;
+}
+.custom-td-df-des{
+    font-weight: 700;
+}
+.eda-csv-name-cont{
+    height: 7rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin:  0 0 2rem 0;
+}
+.csv-name-child{
+    height: inherit;
+    width: 50%;
+    background-color: #F6F8FC;
+    padding: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
