@@ -12,11 +12,13 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.23.2",
     "axios": "^0.27.2",
+    "chart.js": "^3.9.1",
     "https": "^1.0.0",
     "mdb-react-ui-kit": "^4.2.0",
     "multiselect-react-dropdown": "^2.0.25",
     "react": "^18.2.0",
     "react-bootstrap-date-picker": "^5.1.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.36.1",
     "react-hooks-useform": "^0.1.86",
@@ -51,6 +53,8 @@
     ]
   },
   "devDependencies": {
-    "@ant-design/compatible": "^1.1.2"
+    "@ant-design/compatible": "^1.1.2",
+    "@faker-js/faker": "^7.6.0",
+    "faker": "^6.6.6"
   }
 }
