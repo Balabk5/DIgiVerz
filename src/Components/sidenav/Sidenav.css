@@ -34,3 +34,16 @@
     font-size: 1.3rem;
     
 }
+.univariate-graphs-cont{
+    height: 30rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0 ;
+    padding: 2rem 3rem;
+}
+.upcomming-graph-cont,.hist-graph-cont{
+    height: inherit;
+    width: 30%;
+    background-color: aliceblue;
+}

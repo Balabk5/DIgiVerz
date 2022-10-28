@@ -3,11 +3,21 @@ import Axios from "axios";
 import { Table } from "antd";
 import { Text } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Popover, Button } from "@nextui-org/react";
+import { NavLink } from "react-router-dom";
+import { Input, Select, Slider } from "antd";
 import {
+  faBars,
+  faCheck,
   faDatabase,
   faFileCsv,
+  faGear,
   faHeader,
   faHeading,
+  faHistory,
+  faHome,
+  faSearch,
+  faSquarePollHorizontal,
   faTable,
   faTableCells,
   faTableColumns,
@@ -24,7 +34,16 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import graph_img_1 from "../../../assests/histgh2.png";
+import graph_img_2 from "../../../assests/scatarh2.png";
+import graph_img_3 from "../../../assests/graph3.png";
+import graph_img_4 from "../../../assests/graph4.png";
+import graph_img_5 from "../../../assests/graph5.png";
+import graph_img_6 from "../../../assests/graph6.png";
+import graph_img_7 from "../../../assests/graph7.png";
+import graph_img_8 from "../../../assests/graph8.png";
 
+import ModalImage from "react-modal-image";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -72,8 +91,6 @@ export const Dataquality = () => {
     return head_data.df_head[0];
   });
 
-  
-
   let df_tail_1 = [];
   let df_tail_2 = [];
   let df_tail_3 = [];
@@ -89,7 +106,6 @@ export const Dataquality = () => {
   });
 
   console.log(df_tail_array);
-
 
   let df_dec_1 = [];
   let df_dec_2 = [];
@@ -162,6 +178,7 @@ export const Dataquality = () => {
   );
 
   console.log(dfDesList);
+  console.log(clListForGraph);
   const data = {
     labels,
     datasets: [
@@ -179,30 +196,283 @@ export const Dataquality = () => {
       },
     ],
   };
+  const navLinkSty1es = ({ isActive }) => {
+    return {
+      color: isActive ? "blue" : "black",
+    };
+  };
+  const [graph_1, setgraph_1] = useState("");
+  const [graph_2, setgraph_2] = useState("");
+  const [graph_3, setgraph_3] = useState("");
+  
+  const [graph_8, setgraph_8] = useState('')
+  // bivariate graphs usestates
+  const [graph_4, setgraph_4] = useState("");
+  const [graph_4_1, setgraph_4_1] = useState("");
 
+  const [graph_5, setgraph_5] = useState("");
+  const [graph_5_1, setgraph_5_1] = useState("");
+
+  const [graph_6, setgraph_6] = useState("");
+  const [graph_6_1, setgraph_6_1] = useState("");
+
+  const [graph_7, setgraph_7] = useState("");
+  const [graph_7_1, setgraph_7_1] = useState("");
+
+  const handleChange = (selectedoption) => {
+    setgraph_1(selectedoption);
+    console.log(selectedoption);
+  };
+  const handleChangeq = (selectedoption) => {
+    setgraph_2(selectedoption);
+    console.log(selectedoption);
+  };
+  const handleChange_3 = (selectedoption) => {
+    setgraph_3(selectedoption);
+    console.log(selectedoption);
+  };
+
+  // handleChange for bivariate graph
+  const handleChange_4 = (selectedoption) => {
+    setgraph_4(selectedoption);
+    console.log(selectedoption);
+  };
+
+  const handleChange_4_1 = (selectedoption) => {
+    setgraph_4_1(selectedoption);
+    console.log(selectedoption);
+  };
+
+  const handleChange_5 = (selectedoption) => {
+    setgraph_5(selectedoption);
+    console.log(selectedoption);
+  };
+
+  const handleChange_5_1 = (selectedoption) => {
+    setgraph_5_1(selectedoption);
+    console.log(selectedoption);
+  };
+  const handleChange_6 = (selectedoption) => {
+    setgraph_6(selectedoption);
+    console.log(selectedoption);
+  };
+
+  const handleChange_6_1 = (selectedoption) => {
+    setgraph_6_1(selectedoption);
+    console.log(selectedoption);
+  };
+
+  const handleChange_7 = (selectedoption) => {
+    setgraph_7(selectedoption);
+    console.log(selectedoption);
+  };
+  const handleChange_7_1 = (selectedoption) => {
+    setgraph_7_1(selectedoption);
+    console.log(selectedoption);
+  };
+
+  const handleChange_8 = (selectedoption) => {
+    setgraph_8(selectedoption);
+    console.log(selectedoption);
+  };
+  // posting to graph endpoints to flask
+
+  const handlehitgraph_1 = async (e) => {
+    const res = await fetch("http://127.0.0.1:5000/api/dqgraph_1", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        graph_1,
+      }),
+    });
+    await res.json();
+  };
+
+  const handlehitgraph_2 = async (e) => {
+    const res = await fetch("http://127.0.0.1:5000/api/dqgraph_2", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        graph_2,
+      }),
+    });
+    await res.json();
+  };
+
+  const handlehitgraph_3 = async (e) => {
+    const res = await fetch("http://127.0.0.1:5000/api/dqgraph_3", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        graph_3,
+      }),
+    });
+    await res.json();
+  };
+  const handlehitgraph_4 = async (e) => {
+    const res = await fetch("http://127.0.0.1:5000/api/dqgraph_4", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        graph_4,
+        graph_4_1,
+      }),
+    });
+    await res.json();
+  };
+
+  const handlehitgraph_5 = async (e) => {
+    const res = await fetch("http://127.0.0.1:5000/api/dqgraph_5", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        graph_5,
+        graph_5_1,
+      }),
+    });
+    await res.json();
+  };
+  const handlehitgraph_6 = async (e) => {
+    const res = await fetch("http://127.0.0.1:5000/api/dqgraph_6", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        graph_6,
+        graph_6_1,
+      }),
+    });
+    await res.json();
+  };
+  const handlehitgraph_7 = async (e) => {
+    const res = await fetch("http://127.0.0.1:5000/api/dqgraph_7", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        graph_7,
+        graph_7_1,
+      }),
+    });
+    await res.json();
+  };
+  const handlehitgraph_8 = async (e) => {
+    const res = await fetch("http://127.0.0.1:5000/api/dqgraph_8", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        graph_8,
+        
+      }),
+    });
+    await res.json();
+  };
   return (
     <div className="eda-parent-cont">
-      <div className="eda-head">
-        <Text
-          h1
-          size={60}
-          className="dq-head"
-          css={{
-            textGradient: "45deg, $blue600 -10%, $black 80%",
-          }}
-          weight="bold"
-        >
-          Data Quality Reporter
-        </Text>
+      <div className="nav-and-eda-head">
+        <div className="eda-head">
+          <div className="nav-back-icon"></div>
+          <div className="eda-head-child">
+            <Text
+              h1
+              size={60}
+              className="dq-head"
+              css={{
+                textGradient: "45deg, $blue600 -10%, $black 80%",
+              }}
+              weight="bold"
+            >
+              Data Quality Reporter
+            </Text>
+          </div>
+          <div className="nav-popover">
+            <div className="nav-popover-child">
+              <Popover placement="left">
+                <Popover.Trigger>
+                  <Button auto flat>
+                    <FontAwesomeIcon icon={faBars} />
+                  </Button>
+                </Popover.Trigger>
+                <Popover.Content>
+                  <div className="popover-after-cont">
+                    <ul className="sidenav__listitems-main">
+                      <li>
+                        <NavLink style={navLinkSty1es} to="/modelbuilder">
+                          <FontAwesomeIcon
+                            className="sidenav_icon"
+                            icon={faHome}
+                          />{" "}
+                          <h3 className="sidenav__mainhed">Home</h3>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink style={navLinkSty1es} to="/modelbuilder">
+                          <FontAwesomeIcon
+                            className="sidenav_icon"
+                            icon={faDatabase}
+                          />{" "}
+                          <h3 className="sidenav__mainhed">Model builder</h3>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink style={navLinkSty1es} to="/mbresult">
+                          <FontAwesomeIcon
+                            className="sidenav_icon"
+                            icon={faSearch}
+                          />{" "}
+                          <h3 className="sidenav__mainhed">Sales Forcast</h3>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink style={navLinkSty1es} to="/mbhistory">
+                          {" "}
+                          <FontAwesomeIcon
+                            className="sidenav_icon"
+                            icon={faCheck}
+                          />{" "}
+                          <h3 className="sidenav__mainhed">EDA</h3>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink style={navLinkSty1es} to="/mbhistory">
+                          {" "}
+                          <FontAwesomeIcon
+                            className="sidenav_icon"
+                            icon={faGear}
+                          />{" "}
+                          <h3 className="sidenav__mainhed">Algo analyzer</h3>
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                </Popover.Content>
+              </Popover>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="eda-parent">
         <div className="eda-cont-left">
           <div className="eda-csv-name-cont">
             <div className="csv-name-child">
-            <p className="eda-df-size-dec">CSV Name</p>
+              <p className="eda-df-size-dec">CSV Name</p>
               {result_arr.map((item) => (
                 <p className="eda-df-size-dec">
-                  <FontAwesomeIcon icon={faFileCsv} /> {item.file_name} 
+                  <FontAwesomeIcon icon={faFileCsv} /> {item.file_name}
                 </p>
               ))}
             </div>
@@ -282,7 +552,7 @@ export const Dataquality = () => {
           </thead>
           <tbody>
             <tr>
-              <td  className="custom-td-df-des">Count</td>
+              <td className="custom-td-df-des">Count</td>
               {df_dec_array.map((item, i) =>
                 item.map((list) => <td>{list}</td>)
               )}
@@ -293,38 +563,38 @@ export const Dataquality = () => {
                 <td>{item}</td>
               ))}
             </tr>
-            <tr>
-              <td  className="custom-td-df-des">std</td>
+            {/* <tr>
+              <td className="custom-td-df-des">std</td>
               {df_dec_2.map((item, i) => (
                 <td>{item}</td>
               ))}
-            </tr>
+            </tr> */}
             <tr>
-              <td  className="custom-td-df-des">min </td>
+              <td className="custom-td-df-des">min </td>
               {df_dec_3.map((item, i) => (
                 <td>{item}</td>
               ))}
             </tr>
             <tr>
-              <td  className="custom-td-df-des">25%</td>
+              <td className="custom-td-df-des">25%</td>
               {df_dec_4.map((item, i) => (
                 <td>{item}</td>
               ))}
             </tr>
             <tr>
-              <td  className="custom-td-df-des">50%</td>
+              <td className="custom-td-df-des">50%</td>
               {df_dec_5.map((item, i) => (
                 <td>{item}</td>
               ))}
             </tr>
             <tr>
-              <td  className="custom-td-df-des">75%</td>
+              <td className="custom-td-df-des">75%</td>
               {df_dec_6.map((item, i) => (
                 <td>{item}</td>
               ))}
             </tr>
             <tr>
-              <td  className="custom-td-df-des">max</td>
+              <td className="custom-td-df-des">max</td>
               {df_dec_7.map((item, i) => (
                 <td>{item}</td>
               ))}
@@ -332,7 +602,7 @@ export const Dataquality = () => {
           </tbody>
         </table>
       </div>
-      
+
       <div className="eda-head">
         <Text
           h1
@@ -459,13 +729,245 @@ export const Dataquality = () => {
           </thead>
           <tbody>
             <tr>
-            {result_arr.map((item) =>
+              {result_arr.map((item) =>
                 item.df_datatypes.map((list) => <td>{list}</td>)
               )}
             </tr>
-            
           </tbody>
         </table>
+      </div>
+      <div className="univariate-graphs-cont">
+        <div className="hist-graph-cont">
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          <Button onPress={handlehitgraph_1}>Analysis</Button>
+          <ModalImage
+            className="mb_analyticsimg_size"
+            small={graph_img_1}
+            large={graph_img_1}
+            alt="Data from Diff country!"
+          />
+          ;
+        </div>
+        <div className="upcomming-graph-cont">
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChangeq}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          <Button onPress={handlehitgraph_2}>Analysis</Button>
+          <ModalImage
+            className="mb_analyticsimg_size"
+            small={graph_img_2}
+            large={graph_img_2}
+            alt="Data from Diff country!"
+          />
+          ;
+        </div>
+        <div className="upcomming-graph-cont">
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_3}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          <Button onPress={handlehitgraph_3}>Analysis</Button>
+          <ModalImage
+            className="mb_analyticsimg_size"
+            small={graph_img_3}
+            large={graph_img_3}
+            alt="Data from Diff country!"
+          />
+          ;
+        </div>
+        <div className="upcomming-graph-cont">
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_8}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          <Button onPress={handlehitgraph_8}>Analysis</Button>
+          <ModalImage
+            className="mb_analyticsimg_size"
+            small={graph_img_8}
+            large={graph_img_8}
+            alt="Data from Diff country!"
+          />
+          ;
+        </div>
+      </div>
+
+      <div className="univariate-graphs-cont">
+        <div className="hist-graph-cont">
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_4}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          &nbsp; &nbsp;
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_4_1}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          <Button onPress={handlehitgraph_4}>Analysis</Button>
+          <ModalImage
+            className="mb_analyticsimg_size"
+            small={graph_img_4}
+            large={graph_img_4}
+            alt="Data from Diff country!"
+          />
+          ;
+        </div>
+        <div className="hist-graph-cont">
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_5}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          &nbsp; &nbsp;
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_5_1}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          <Button onPress={handlehitgraph_5}>Analysis</Button>
+          <ModalImage
+            className="mb_analyticsimg_size"
+            small={graph_img_5}
+            large={graph_img_5}
+            alt="Data from Diff country!"
+          />
+          ;
+        </div>
+        <div className="hist-graph-cont">
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_6}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          &nbsp; &nbsp;
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_6_1}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          <Button onPress={handlehitgraph_6}>Analysis</Button>
+          <ModalImage
+            className="mb_analyticsimg_size"
+            small={graph_img_6}
+            large={graph_img_6}
+            alt="Data from Diff country!"
+          />
+          ;
+        </div>
+        <div className="hist-graph-cont">
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_7}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          &nbsp; &nbsp;
+          <Select
+            size="large"
+            placeholder="select country"
+            onChange={handleChange_7_1}
+            className="country_inp"
+          >
+            {clListForGraph.map((cl, i) => (
+              <options value={cl} key={cl}>
+                {cl}
+              </options>
+            ))}
+          </Select>
+          <Button onPress={handlehitgraph_7}>Analysis</Button>
+          <ModalImage
+            className="mb_analyticsimg_size"
+            small={graph_img_7}
+            large={graph_img_7}
+            alt="Data from Diff country!"
+          />
+          ;
+        </div>
       </div>
     </div>
   );

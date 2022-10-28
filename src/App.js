@@ -24,6 +24,8 @@ import { Mbresul } from "./Components/FeaturesComponents/Modelbuilder/Mbresul";
 
 import { MBhistory } from "./Components/FeaturesComponents/Modelbuilder/MBhistory";
 import { Dataquality } from "./Components/FeaturesComponents/Dataquality/Dataquality";
+import { Dqhistory } from "./Components/FeaturesComponents/Dataquality/Dqhistory";
+
 
 
 
@@ -60,6 +62,7 @@ function App() {
             <Route path="/mbresult" element={<Mbresul/>} />
             <Route path="/mbhistory" element={<MBhistory/>} />
             <Route path="/dataQuality" element={<Dataquality/>} />
+            <Route path="/dqhistory" element={<Dqhistory/>} />
           </Routes>
         </div>
       </Router>
