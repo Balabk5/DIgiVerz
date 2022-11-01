@@ -5,12 +5,14 @@
     display: flex;
     justify-content: space-around;
     padding: 2rem;
+    
 }
 .eda-cont-left{
     height: auto;
     width: 80%;
     
 }
+
 .eda-cont-right{
     height: 100vh;
     width: 20%;
@@ -185,4 +187,31 @@ table tbody td {
 }
 .sidenav__listitems-main li h3{
     font-size: 1rem;
+}
+.univariate-graphs-cont{
+    height: 28rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0 ;
+    padding: 2rem 3rem;
+}
+.upcomming-graph-cont,.hist-graph-cont{
+    height: inherit;
+    width: 22%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.eda-gh-btn-cont{
+    width: 3rem;
+    margin: 0 20% ;
+}
+.eda-select-inp{
+    margin: 0 1rem;
+}
+.upcomming-graph-cont h4,.hist-graph-cont h4{
+    text-align: center;
 }
