@@ -221,59 +221,47 @@ export const Dataquality = () => {
 
   const handleChange = (selectedoption) => {
     setgraph_1(selectedoption);
-    console.log(selectedoption);
   };
   const handleChangeq = (selectedoption) => {
     setgraph_2(selectedoption);
-    console.log(selectedoption);
   };
   const handleChange_3 = (selectedoption) => {
     setgraph_3(selectedoption);
-    console.log(selectedoption);
   };
 
   // handleChange for bivariate graph
   const handleChange_4 = (selectedoption) => {
     setgraph_4(selectedoption);
-    console.log(selectedoption);
   };
 
   const handleChange_4_1 = (selectedoption) => {
     setgraph_4_1(selectedoption);
-    console.log(selectedoption);
   };
 
   const handleChange_5 = (selectedoption) => {
     setgraph_5(selectedoption);
-    console.log(selectedoption);
   };
 
   const handleChange_5_1 = (selectedoption) => {
     setgraph_5_1(selectedoption);
-    console.log(selectedoption);
   };
   const handleChange_6 = (selectedoption) => {
     setgraph_6(selectedoption);
-    console.log(selectedoption);
   };
 
   const handleChange_6_1 = (selectedoption) => {
     setgraph_6_1(selectedoption);
-    console.log(selectedoption);
   };
 
   const handleChange_7 = (selectedoption) => {
     setgraph_7(selectedoption);
-    console.log(selectedoption);
   };
   const handleChange_7_1 = (selectedoption) => {
     setgraph_7_1(selectedoption);
-    console.log(selectedoption);
   };
 
   const handleChange_8 = (selectedoption) => {
     setgraph_8(selectedoption);
-    console.log(selectedoption);
   };
   // posting to graph endpoints to flask
 

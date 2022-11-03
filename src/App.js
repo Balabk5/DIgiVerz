@@ -8,6 +8,7 @@ import "./Components/FeaturesComponents/Modelbuilder/Mbresult.css"
 import "./layouts/Uploadcsv/Uploadcsv.css"
 import "./Components/FeaturesComponents/Dataquality/Dataquality.css"
 import "./Components/FeaturesComponents/Modelbuilder/MBhistory.css"
+import "./Components/FeaturesComponents/AlgorithmAnalyzer/AlgorithmAnalyzer.css"
 import "./App.css";
 
 
@@ -25,6 +26,8 @@ import { Mbresul } from "./Components/FeaturesComponents/Modelbuilder/Mbresul";
 import { MBhistory } from "./Components/FeaturesComponents/Modelbuilder/MBhistory";
 import { Dataquality } from "./Components/FeaturesComponents/Dataquality/Dataquality";
 import { Dqhistory } from "./Components/FeaturesComponents/Dataquality/Dqhistory";
+import { UploadCsvAlgo } from "./layouts/UploadCsvAlgo/UploadCsvAlgo";
+import { AlgorithmAnalyzer } from "./Components/FeaturesComponents/AlgorithmAnalyzer/AlgorithmAnalyzer";
 
 
 
@@ -63,6 +66,9 @@ function App() {
             <Route path="/mbhistory" element={<MBhistory/>} />
             <Route path="/dataQuality" element={<Dataquality/>} />
             <Route path="/dqhistory" element={<Dqhistory/>} />
+            <Route path="/AlgoAnalyzerCsvupload" element={<UploadCsvAlgo/>} />
+            <Route path="/AlgorithmAnalyzer" element={<AlgorithmAnalyzer/>} />
+
           </Routes>
         </div>
       </Router>
