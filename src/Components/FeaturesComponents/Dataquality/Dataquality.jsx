@@ -65,6 +65,7 @@ export const Dataquality = () => {
   const getData = async () => {
     await Axios.get("http://127.0.0.1:5000/api/dqresult").then((res) => {
       setdfeda(res.data);
+      console.log(res.data)
     });
   };
   let result_arr = dfeda.slice(-1);

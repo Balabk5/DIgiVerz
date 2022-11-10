@@ -13,7 +13,7 @@ export const MBhistory = () => {
   const getData = async () => {
     await Axios.get("http://127.0.0.1:5000/api/mbresult").then((res) => {
       setloading(false);
-
+      console.log(res.data)
       setstate(
         res.data.map((row) => ({
           country: row.country,

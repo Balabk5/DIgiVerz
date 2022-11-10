@@ -16,14 +16,7 @@ export const Dqhistory = () => {
 
       setstate(
         res.data.map((row) => ({
-          //   Buy_price: row.Buy_price,
-          //   Fuel_Type: row.Fuel_Type,
-          //   Kilometres: row.Kilometres,
-          //   Output: row.Output,
-          //   Owner: row.Owner,
-          //   Seller_Type: row.Seller_Type,
-          //   Transmission_Type: row.Transmission_Type,
-          //   Year : row.Year,
+         
 
           file_name: row.file_name,
           file_size: row.size,
@@ -70,7 +63,7 @@ export const Dqhistory = () => {
       dataIndex: "date_time",
       width: 150,
     },
-  ];
+  ]; 
   return (
     <div>
       <div className="eda-head">
