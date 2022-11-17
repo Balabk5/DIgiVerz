@@ -4,103 +4,109 @@ import { Table } from "antd";
 
 export const Algotabletry = () => {
   useEffect(() => {
-    getData_result();
+    getData_result()
   }, []);
-
   const [algo_result, setalgo_result] = useState([]);
-
-  const [tablejsondata, settablejsondata] = useState([]);
-  const [algoTableResult, setalgoTableResult] = useState();
-
   const getData_result = async () => {
     await Axios.get("http://127.0.0.1:5000/api/algoresults").then((res) => {
-      console.log("i am algo data");
       setalgo_result(res.data);
-      console.log(algo_result);
-      //*geting sliced data and json phares******
-      const algo_result_arr = algo_result.slice(-1);
-      console.log(algo_result_arr);
-
-      const algo_modified = algo_result_arr.map(
-        (data) => data.analyzed_data_modified
-      );
-      console.log(algo_modified);
-      const tableJsonTry = JSON.parse(algo_modified);
-      setalgoTableResult(
-        tableJsonTry.map((row) => ({
-          Model: row.Model,
-          AUC: row.AUC,
-          Accuracy: row.Accuracy,
-          F1: row.F1,
-          Kappa: row.Kappa,
-          MCC: row.MCC,
-          Prec: row.Prec,
-          Recall: row.Recall,
-        }))
-      );
-      console.log(algoTableResult);
     });
   };
+  let algo_result_arr = algo_result.slice(-1);
+  console.log(algo_result_arr);
 
-  //   let algo_modified = algo_result_arr.map(
-  //     (data) => data.analyzed_data_modified
-  //   );
+  
+  let df_dec_1 = [];
+  let df_dec_2 = [];
+  let df_dec_3 = [];
+  let df_dec_4 = [];
+  let df_dec_5 = [];
+  let df_dec_6 = [];
+  let df_dec_7 = [];
+  const df_dec_array = algo_result_arr.map((head_data) => {
+    df_dec_1 = head_data.analyzed_data[1];
+    df_dec_2 = head_data.analyzed_data[2];
+    df_dec_3 = head_data.analyzed_data[3];
+    df_dec_4 = head_data.analyzed_data[4];
+    df_dec_5 = head_data.analyzed_data[5];
+    df_dec_6 = head_data.analyzed_data[6];
+    df_dec_7 = head_data.analyzed_data[7];
 
-  // const res_try = JSON.parse(algo_modified)
-  // console.log(res_try)
+    return head_data.analyzed_data[0];
+  });
 
-  const columns = [
-    {
-      title: "Model",
-      dataIndex: "Model",
-      width: 150,
-    },
-    {
-      title: "AUC",
-      dataIndex: "AUC",
-      width: 150,
-    },
-    {
-      title: "Accuracy",
-      dataIndex: "Accuracy",
-      width: 150,
-    },
-    {
-      title: "F1",
-      dataIndex: "F1",
-      width: 150,
-    },
-    {
-      title: "Kappa",
-      dataIndex: "Kappa",
-      width: 150,
-    },
-    {
-      title: "MCC",
-      dataIndex: "MCC",
-      width: 150,
-    },
-    {
-      title: "Recall",
-      dataIndex: "Recall",
-      width: 150,
-    },
-  ];
   return (
     <div>
       <div className="histtable___cont_child">
-        <Table
-          className="hist_table"
-          size="small"
-          columns={columns}
-          dataSource={algoTableResult}
-          pagination={{
-            defaultPageSize: 10,
-            showSizeChanger: true,
-            pageSizeOptions: ["10", "20", "30"],
-          }}
-          scroll={{ y: 510 }}
-        />
+      <div className="df-head-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Accuracy</th>
+              <th>AUC</th>
+              <th>Recall</th>
+              <th>Prec</th>
+              <th>F1</th>
+              <th>Kappa</th>
+              <th>MCC</th>
+              <th>TT (Sec)</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              
+              {df_dec_array.map((item, i) =>
+                item.map((list) => <td>{list}</td>)
+              )}
+            </tr>
+            <tr>
+              
+              {df_dec_1.map((item, i) => (
+                <td>{item}</td>
+              ))}
+            </tr>
+            {/* <tr>
+              <td className="custom-td-df-des">std</td>
+              {df_dec_2.map((item, i) => (
+                <td>{item}</td>
+              ))}
+            </tr> */}
+            <tr>
+              
+              {df_dec_3.map((item, i) => (
+                <td>{item}</td>
+              ))}
+            </tr>
+            <tr>
+              
+              {df_dec_4.map((item, i) => (
+                <td>{item}</td>
+              ))}
+            </tr>
+            <tr>
+              
+              {df_dec_5.map((item, i) => (
+                <td>{item}</td>
+              ))}
+            </tr>
+            <tr>
+              
+              {df_dec_6.map((item, i) => (
+                <td>{item}</td>
+              ))}
+            </tr>
+            <tr>
+              
+              {df_dec_7.map((item, i) => (
+                <td>{item}</td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
       </div>
     </div>
   );

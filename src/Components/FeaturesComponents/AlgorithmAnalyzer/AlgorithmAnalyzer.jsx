@@ -10,6 +10,7 @@ import {
   faTableColumns,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 export const AlgorithmAnalyzer = () => {
   useEffect(() => {
     getData();
@@ -19,6 +20,19 @@ export const AlgorithmAnalyzer = () => {
   const [algo_analyze, setalgo_analyze] = useState([]);
   const [algo_result, setalgo_result] = useState([]);
   const [colunm, setcolunm] = useState("");
+
+
+  const [pycaretopt, setpycaretopt] = useState('class')
+  const pycaret_options_array = [
+    {value:"Classification", text:"Classification"},
+    {value:"Regression", text:"Regression"},
+    
+  ]
+
+  const pycaret_handleChange = (selectedoption) => {
+    setpycaretopt(selectedoption)
+    console.log(selectedoption)
+  };
 
   const getData = async () => {
     await Axios.get("http://127.0.0.1:5000/api/algocolunmnames").then((res) => {
@@ -46,7 +60,7 @@ export const AlgorithmAnalyzer = () => {
     setcolunm(selectedoption);
     console.log(selectedoption);
   };
-
+  const navigate = useNavigate();
   const algo_col_options = async (e) => {
     const res = await fetch("http://127.0.0.1:5000/api/getcolnameforalgo", {
       method: "POST",
@@ -55,9 +69,14 @@ export const AlgorithmAnalyzer = () => {
       },
       body: JSON.stringify({
         colunm,
+        pycaretopt
       }),
     });
-    await res.json();
+    await res.json().then(res=>{
+      if(res === "OK"){
+        navigate("/AlgorithmAnalyzerm");
+      }
+    });
   };
 
 
@@ -148,6 +167,14 @@ export const AlgorithmAnalyzer = () => {
             </options>
           ))}
         </Select>
+        <Select
+              size="large"
+              placeholder="select Qualification"
+              onChange={pycaret_handleChange}
+              className="country_inp"
+              options={pycaret_options_array}
+            >
+            </Select>
         <Button className="eda-gh-btn" flat onPress={algo_col_options}>
           Analyze
         </Button>
