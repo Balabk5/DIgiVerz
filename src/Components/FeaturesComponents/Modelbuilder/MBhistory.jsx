@@ -54,9 +54,11 @@ export const MBhistory = () => {
     <div>
       {loading ? (
         <>
-          <Loading color="primary" textColor="primary">
+        <div className="loader-spinner">
+          <Loading color="primary"  textColor="primary">
             Loading..!
           </Loading>
+          </div>
         </>
       ) : (
         <div className="modelbuilder__parent">

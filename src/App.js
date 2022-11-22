@@ -29,6 +29,7 @@ import { Dqhistory } from "./Components/FeaturesComponents/Dataquality/Dqhistory
 import { UploadCsvAlgo } from "./layouts/UploadCsvAlgo/UploadCsvAlgo";
 import { AlgorithmAnalyzer } from "./Components/FeaturesComponents/AlgorithmAnalyzer/AlgorithmAnalyzer";
 import { Algotabletry } from "./Components/FeaturesComponents/AlgorithmAnalyzer/Algotabletry";
+import { Algoreg } from "./Components/FeaturesComponents/AlgorithmAnalyzer/Algoreg";
 
 
 
@@ -73,6 +74,7 @@ function App() {
             <Route path="/AlgoAnalyzerCsvupload" element={<UploadCsvAlgo/>} />
             <Route path="/AlgorithmAnalyzer" element={<AlgorithmAnalyzer/>} />
             <Route path="/AlgorithmAnalyzerm" element={<Algotabletry/>} />
+            <Route path="/algo_res_reg" element={<Algoreg/>} />
               
               
 

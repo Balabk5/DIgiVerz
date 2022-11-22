@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import {  Select } from "antd";
+import { Select } from "antd";
 import { Text } from "@nextui-org/react";
-import {  Button } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import {
   faDatabase,
   faFileCsv,
@@ -21,17 +21,15 @@ export const AlgorithmAnalyzer = () => {
   const [algo_result, setalgo_result] = useState([]);
   const [colunm, setcolunm] = useState("");
 
-
-  const [pycaretopt, setpycaretopt] = useState('class')
+  const [pycaretopt, setpycaretopt] = useState("class");
   const pycaret_options_array = [
-    {value:"Classification", text:"Classification"},
-    {value:"Regression", text:"Regression"},
-    
-  ]
+    { value: "Classification", text: "Classification" },
+    { value: "Regression", text: "Regression" },
+  ];
 
   const pycaret_handleChange = (selectedoption) => {
-    setpycaretopt(selectedoption)
-    console.log(selectedoption)
+    setpycaretopt(selectedoption);
+    console.log(selectedoption);
   };
 
   const getData = async () => {
@@ -62,61 +60,61 @@ export const AlgorithmAnalyzer = () => {
   };
   const navigate = useNavigate();
   const algo_col_options = async (e) => {
-    const res = await fetch("http://127.0.0.1:5000/api/getcolnameforalgo", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        colunm,
-        pycaretopt
-      }),
-    });
-    await res.json().then(res=>{
-      if(res === "OK"){
-        navigate("/AlgorithmAnalyzerm");
+    if (pycaretopt === "Classification") {
+      console.log("i am entering into classi");
+      const res = await fetch("http://127.0.0.1:5000/api/getcolnameforalgo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          colunm,
+          pycaretopt,
+        }),
+      });
+      await res.json().then((res) => {
+        if (res === "OK") {
+          navigate("/AlgorithmAnalyzerm");
+        }
+      });
+    } else {
+      console.log("im heading into regression endpoint");
+      const res = await fetch("http://127.0.0.1:5000/api/post_col_name_reg", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          colunm,
+          pycaretopt,
+        }),
+      });
+      await res.json();
+      if (res.status == 200) {
+        console.log("im headig to next page");
+
+        setTimeout(() => {
+          navigate("/algo_res_reg");
+        }, 2000);
       }
-    });
+    }
   };
-
-
-  
-  let df_dec_1 = [];
-  let df_dec_2 = [];
-  let df_dec_3 = [];
-  let df_dec_4 = [];
-  let df_dec_5 = [];
-  let df_dec_6 = [];
-  let df_dec_7 = [];
-  const df_dec_array = algo_result_arr.map((head_data) => {
-    df_dec_1 = head_data.analyzed_data[1];
-    df_dec_2 = head_data.analyzed_data[2];
-    df_dec_3 = head_data.analyzed_data[3];
-    df_dec_4 = head_data.analyzed_data[4];
-    df_dec_5 = head_data.analyzed_data[5];
-    df_dec_6 = head_data.analyzed_data[6];
-    df_dec_7 = head_data.analyzed_data[7];
-
-    return head_data.analyzed_data[0];
-  });
-
-
 
   return (
     <div className="algo-parent-cont">
       <div className="algo-head-child">
-            <Text
-              h1
-              size={60}
-              className="dq-head"
-              css={{
-                textGradient: "45deg, $blue600 -10%, $black 80%",
-              }}
-              weight="bold"
-            >
-              Algorithm Analyzer
-            </Text>
-          </div>
+        <Text
+          h1
+          size={60}
+          className="dq-head"
+          css={{
+            textGradient: "45deg, $blue600 -10%, $black 80%",
+          }}
+          weight="bold"
+        >
+          Algorithm Analyzer
+        </Text>
+      </div>
       <div className="eda-csv-name-cont">
         <div className="csv-name-child">
           <p className="eda-df-size-dec">CSV Name</p>
@@ -153,13 +151,15 @@ export const AlgorithmAnalyzer = () => {
           ))}
         </div>
       </div>
-      <Text h3 className="algo-target-head">Select the target colunm</Text>
+      <Text h3 className="algo-target-head">
+        Select the target colunm
+      </Text>
       <div className="select-option-cont">
         <Select
           size="large"
-          placeholder="select country"
+          placeholder="select Colunm"
           onChange={handleChange}
-          className="eda-select-inp"
+          className="algo-select-inp"
         >
           {clListForGraph.map((cl, i) => (
             <options value={cl} key={cl}>
@@ -168,85 +168,15 @@ export const AlgorithmAnalyzer = () => {
           ))}
         </Select>
         <Select
-              size="large"
-              placeholder="select Qualification"
-              onChange={pycaret_handleChange}
-              className="country_inp"
-              options={pycaret_options_array}
-            >
-            </Select>
-        <Button className="eda-gh-btn" flat onPress={algo_col_options}>
+          size="large"
+          placeholder="select algorithms"
+          onChange={pycaret_handleChange}
+          className="country_inp"
+          options={pycaret_options_array}
+        ></Select>
+        <Button className="algo-gh-btn" flat onPress={algo_col_options}>
           Analyze
         </Button>
-      </div>
-      <div className="df-head-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Model</th>
-              <th>Accuracy</th>
-              <th>AUC</th>
-              <th>Recall</th>
-              <th>Prec</th>
-              <th>F1</th>
-              <th>Kappa</th>
-              <th>MCC</th>
-              <th>TT (Sec)</th>
-              
-              
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              
-              {df_dec_array.map((item, i) =>
-                item.map((list) => <td>{list}</td>)
-              )}
-            </tr>
-            <tr>
-              
-              {df_dec_1.map((item, i) => (
-                <td>{item}</td>
-              ))}
-            </tr>
-            {/* <tr>
-              <td className="custom-td-df-des">std</td>
-              {df_dec_2.map((item, i) => (
-                <td>{item}</td>
-              ))}
-            </tr> */}
-            <tr>
-              
-              {df_dec_3.map((item, i) => (
-                <td>{item}</td>
-              ))}
-            </tr>
-            <tr>
-              
-              {df_dec_4.map((item, i) => (
-                <td>{item}</td>
-              ))}
-            </tr>
-            <tr>
-              
-              {df_dec_5.map((item, i) => (
-                <td>{item}</td>
-              ))}
-            </tr>
-            <tr>
-              
-              {df_dec_6.map((item, i) => (
-                <td>{item}</td>
-              ))}
-            </tr>
-            <tr>
-              
-              {df_dec_7.map((item, i) => (
-                <td>{item}</td>
-              ))}
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   );

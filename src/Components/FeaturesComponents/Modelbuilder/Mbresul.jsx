@@ -12,17 +12,18 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import ModalImage from "react-modal-image";
-
+import { Loading } from "@nextui-org/react";
 
 export const Mbresul = () => {
   useEffect(() => {
     fetchItems();
   }, []);
-
+  const [loading, setloading] = useState(true);
   const [items, setItems] = useState([]);
   const fetchItems = async () => {
     const data = await fetch("http://127.0.0.1:5000/api/mbresult");
     console.log(data);
+    setloading(false);
     const items = await data.json();
     console.log(items);
     setItems(items);
@@ -41,7 +42,17 @@ export const Mbresul = () => {
   });
 
   return (
-    <div className="modelbuilder__parent">
+    <div>
+      {loading ? (
+        <>
+        <div className="loader-spinner">
+          <Loading color="primary"  textColor="primary">
+            Loading..!
+          </Loading>
+          </div>
+        </>
+      ) : (
+        <div className="modelbuilder__parent">
       <Sidenav />
       <div className="MB_form__cont">
         <div className="MB_form_cont__child">
@@ -105,6 +116,9 @@ export const Mbresul = () => {
           </div>
         </div>
       </div>
+    </div>
+      )}
+    
     </div>
   );
 };

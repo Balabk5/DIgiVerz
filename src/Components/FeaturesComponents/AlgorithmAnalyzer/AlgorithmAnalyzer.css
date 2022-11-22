@@ -1,5 +1,5 @@
 .algo-parent-cont{
-    height: auto;
+    height: 100vh   ;
     width: 100%;
     padding: 2rem;
 }
@@ -10,4 +10,10 @@
 }
 .algo-target-head{
     text-align: center;
+}
+.country_inp{
+    margin-left: 1rem;
+}
+.algo-gh-btn{
+    margin-left: 1rem;
 }

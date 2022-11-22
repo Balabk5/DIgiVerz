@@ -17,6 +17,7 @@ const Login = () => {
       const [items, setItems] = useState([]);
       const fetchItems = async () => {
         const data = await fetch(
+          
           "http://127.0.0.1:5000/api/user"
         );
           console.log(data)
@@ -24,6 +25,11 @@ const Login = () => {
         console.log(items);
         setItems(items);
       };
+      // const getData = async () => {
+      //   await Axios.get("http://127.0.0.1:5000/api/user").then((res) => {
+          
+      //   });
+      // };
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [visible, setVisible] = React.useState(false);
