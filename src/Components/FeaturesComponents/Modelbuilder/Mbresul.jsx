@@ -102,7 +102,7 @@ export const Mbresul = () => {
             small={mbAnalytics1}
             large={mbAnalytics1}
             alt="Data from Diff country!"
-          />; 
+          /> 
             </div>
             <div className="mb_country_data">
               <p>mean Salary </p>
@@ -111,7 +111,7 @@ export const Mbresul = () => {
             small={mbAnalytics}
             large={mbAnalytics}
             alt="Data from Diff country!"
-          />;
+          />
             </div>
           </div>
         </div>

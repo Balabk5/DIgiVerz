@@ -73,6 +73,7 @@ export const AlgorithmAnalyzer = () => {
         }),
       });
       await res.json().then((res) => {
+        console.log(res);
         if (res === "OK") {
           navigate("/AlgorithmAnalyzerm");
         }

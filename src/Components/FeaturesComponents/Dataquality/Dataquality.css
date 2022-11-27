@@ -215,3 +215,10 @@ table tbody td {
 .upcomming-graph-cont h4,.hist-graph-cont h4{
     text-align: center;
 }
+.nav-back-top-btn{
+    width: 20%;
+    display: flex;
+    margin-left: 20% ;
+    flex-direction: column;
+    margin-top: 20%;
+}

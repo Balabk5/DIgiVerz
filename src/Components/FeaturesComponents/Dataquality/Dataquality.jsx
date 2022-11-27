@@ -7,6 +7,8 @@ import { Popover, Button } from "@nextui-org/react";
 import { NavLink } from "react-router-dom";
 import { Input, Select, Slider } from "antd";
 import {
+  faArrowCircleLeft,
+  faBackward,
   faBars,
   faCheck,
   faDatabase,
@@ -65,7 +67,7 @@ export const Dataquality = () => {
   const getData = async () => {
     await Axios.get("http://127.0.0.1:5000/api/dqresult").then((res) => {
       setdfeda(res.data);
-      console.log(res.data)
+      console.log(res.data);
     });
   };
   let result_arr = dfeda.slice(-1);
@@ -378,7 +380,13 @@ export const Dataquality = () => {
     <div className="eda-parent-cont">
       <div className="nav-and-eda-head">
         <div className="eda-head">
-          <div className="nav-back-icon"></div>
+          <div className="nav-back-icon">
+            <div className="nav-back-top-btn">
+              <Button color="primary" auto>
+                <FontAwesomeIcon icon={faArrowCircleLeft}/>  Back
+              </Button>
+            </div>
+          </div>
           <div className="eda-head-child">
             <Text
               h1

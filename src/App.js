@@ -10,6 +10,7 @@ import "./Components/FeaturesComponents/Dataquality/Dataquality.css"
 import "./Components/FeaturesComponents/Modelbuilder/MBhistory.css"
 import "./Components/FeaturesComponents/AlgorithmAnalyzer/AlgorithmAnalyzer.css"
 import "./App.css";
+import "./Components/FeaturesComponents/Salesfrocast/Salesforcast.css"
 
 
 import { NextUIProvider } from "@nextui-org/react";
@@ -30,6 +31,7 @@ import { UploadCsvAlgo } from "./layouts/UploadCsvAlgo/UploadCsvAlgo";
 import { AlgorithmAnalyzer } from "./Components/FeaturesComponents/AlgorithmAnalyzer/AlgorithmAnalyzer";
 import { Algotabletry } from "./Components/FeaturesComponents/AlgorithmAnalyzer/Algotabletry";
 import { Algoreg } from "./Components/FeaturesComponents/AlgorithmAnalyzer/Algoreg";
+import { Salesforcast } from "./Components/FeaturesComponents/Salesfrocast/Salesforcast";
 
 
 
@@ -75,6 +77,7 @@ function App() {
             <Route path="/AlgorithmAnalyzer" element={<AlgorithmAnalyzer/>} />
             <Route path="/AlgorithmAnalyzerm" element={<Algotabletry/>} />
             <Route path="/algo_res_reg" element={<Algoreg/>} />
+            <Route path="/Salesforcast" element={<Salesforcast/>} />
               
               
 
